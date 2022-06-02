@@ -12,6 +12,9 @@
         <div class="menuEl">
             Kontakt
         </div>
+        <div class="menuEl">
+            Kontakt
+        </div>
     </div>
 </template>
 

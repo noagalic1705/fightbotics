@@ -1,16 +1,15 @@
 <template>
     <div id="naslov">
-        <div id="nasEL1">
-            <video src="../assets/gifek.mp4" id="v0" autoplay autobuffer="autobuffer" preload="preload" type="video/mp4">
+        <!-- <div id="nasEL1">
+            <video src="../assets/gifek.mp4" id="v0" autoplay loop type="video/mp4">
             </video>
-        </div>
-        <div id="nasEL2">
+        </div> -->
+         <div id="nasEL2">
             <div class="container">
-                <div class="glitch" data-text="FIGHTBOTICS">FIGHTBOTICS</div>
-                <div class="glow">FIGHTBOTICS</div>
+                <div class="glitch botics" data-text="FIGHTBOTICS">FIGHTBOTICS</div>
                 
                 </div>
-        </div>
+        </div> 
     </div>
 </template>
 
@@ -21,161 +20,85 @@
     display: table;
     overflow-x: hidden;
 }
-
-.botics {
-    vertical-align: top;
-    float: left;
-    font-size: 7vw;
-    color: white;
-    left: 0px;
-    line-height: 34px;
-    height: 35px;
-}
-
-
-#nasEL2 {
-    vertical-align: middle;
-    text-align: center;
-    display: table-cell;
-    width: 70%;
-
-}
-
-#v0 {
-
-    width: 100%;
-}
-
 .container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 65%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@mixin glitchCopy { 
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 }
 
 .glitch {
-    vertical-align: top;
-    float: left;
-    color: white;
-    left: 0px;
-  position: relative;
-  font-size: 9vw;
-  // margin: 70px 200px;
-  animation: glitch 5s 5s infinite;
+	position: relative;
+	color: white;
+	font-size: 6vw;
+  letter-spacing: 0.3em;
+	animation: glitch-skew 1s infinite linear alternate-reverse;
+	
+	&::before{
+		@include glitchCopy;
+		left: 2px;
+
+		text-shadow: -2px 0 #ff00c1;
+
+		clip: rect(44px, 450px, 56px, 0);
+
+		animation: glitch-anim 5s infinite linear alternate-reverse;
+	}
+	
+	&::after {
+		@include glitchCopy;
+		left: -2px;
+		text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+		animation: glitch-anim2 1s infinite linear alternate-reverse;
+	}
 }
 
-.glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  text-shadow: -5px 0 magenta;
-  background: black;
-  overflow: hidden;
-  top: 0;
-  animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
-}
 
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  text-shadow: -5px 0 lightgreen;
-  background: black;
-  overflow: hidden;
-  top: 0;
-  animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
-}
-
-@keyframes glitch {
-  1%{
-    transform: rotateX(10deg) skewX(90deg);
-  }
-  2%{
-    transform: rotateX(0deg) skewX(0deg);
-  }
-}
-
-@keyframes noise-1 {
-  $steps: 30;
-  @for $i from 1 through $steps {
-    #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
-      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-    }
-  }
-}
-
-@keyframes noise-2 {
-  $steps: 30;
+@keyframes glitch-anim {
+  $steps: 20;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
-      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
     }
   }
 }
 
-.scanlines {
-  overflow: hidden;
-  mix-blend-mode: difference;
-}
 
-.scanlines::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) .5%,
-    transparent 1%
-  );
-
-  animation: fudge 7s ease-in-out alternate infinite;
-}
-
-
-@keyframes fudge {
-  from {
-    transform: translate(0px, 0px);
-  }
-  to {
-    transform: translate(0px, 2%);
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
+    }
   }
 }
 
-.glow {
-  @extend .glitch;
-  text-shadow: 0 0 1000px rgb(223, 191, 191);
-  color: transparent;
-  position: absolute;
-  top: 0;
-}
 
-.subtitle {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 100;
-  font-size: .8vw;
-  color: rgba(165, 141, 141, .4);
-  text-transform: uppercase;
-  letter-spacing: 1em;
-  text-align: center;
-  position: absolute;
-  left: 17%;
-  animation: glitch-2 5s 5.02s infinite;
-}
-
-@keyframes glitch-2 {
-  1%{
-    transform: rotateX(10deg) skewX(70deg);
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
   }
-  2%{
-    transform: rotateX(0deg) skewX(0deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .glitch {
+    font-size: 10vw;
   }
 }
 
