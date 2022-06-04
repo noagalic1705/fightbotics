@@ -35,11 +35,11 @@
                 </p>
             </div>
         </div>
-        <h1>Sponzori</h1>
+        <h1 class="sponz">Sponzori</h1>
         <div class="sponz">
-            <img class="sponzel" src="../assets/fsb.png" alt="fsb">
-            <img class="sponzel" src="../assets/hep.png" alt="hep">
-            <img class="sponzel" src="../assets/radiona.png" alt="makerspace">
+            <a href="https://www.fsb.unizg.hr/index.php?fsbonline"><img class="sponzel" src="../assets/fsb.png" alt="fsb"></a>
+            <a href="https://www.hep.hr/"><img class="sponzel" src="../assets/hep.png" alt="hep"></a>
+            <a href="https://radiona.org/"><img class="sponzel" src="../assets/radiona.png" alt="makerspace"></a>
         </div>
     </div>
 </template>
@@ -55,35 +55,38 @@ export default {
 <style scoped>
 
 .Kon {
-    font-size: 2.5vh;
+    font-size: 1.75vh;
     color: rgb(195, 145, 91);
 }
 
 .Br {
-    font-size: 2.5vh;
+    font-size: 1.75vh;
     font-style: italic;
     color: rgb(37, 102, 202);
 }
 .kont {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 0h;
+    margin-bottom: 5vh;
 }
 .sponz {
         width: 100%;
         text-align: center;
-        
+        font-size: 1.75vh;
     }
 .sponzel {
-    margin-top: 5vh;
-        width: 30%;
+    margin-top: 2vh;
+        width: 20%;
         margin-left: 2vh;
         margin-right: 2vh;
+        font-size: 1.75vh;
     }
 
 .boja {
     color: rgb(78, 201, 162);
 }
 
-
+.imeKo{
+    font-size: 1.75vh;
+}
 
 </style>
