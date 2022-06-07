@@ -13,13 +13,15 @@
             Kontakt
         </router-link>
     </div>
-    <div id="nasEL1">
-            <video src="./assets/gifek.mp4" id="v0" muted autoplay loop type="video/mp4">
+    <video src="./assets/gifek.mp4" id="v0" muted autoplay loop type="video/mp4">
             </video>
+    <div id="nasEL1">
+            
         </div>
     <router-view />
     <footer>
-      <small>Copyright &copy; 2022 FightBotics, Author: Noa Galić</small>
+      <small>Copyright &copy; 2022 FightBotics, Author: Noa Galić<br></small>
+      <small> v1.0</small>
     </footer>
 
 </template>
@@ -35,13 +37,12 @@ export default {
 </script>
 
 <style>
+
 @font-face {
     font-family: "Jetbrains";
     src: url("./assets/fonts/JetBrainsMono-Regular.woff2") format('woff2'),
     url("./assets/fonts/JetBrainsMono-Regular.ttf") format('truetype');
 }
-
-
 
 .giff {
   height: 20%;
@@ -78,12 +79,14 @@ body {
 
 
 #v0 {
-  opacity: 0.6;
-    width: 70%;
+  opacity: 1;
+    width: 60%;
 }
     .menu {
+      margin-top: 2vh;
         width: 100%;
-        display: table;
+        display: flex;
+        justify-content: space-around;
         border-bottom: 2px solid rgba(58, 58, 58, 0.774);
         
     }
@@ -101,7 +104,7 @@ body {
     top: 30%;
   }
   #v0 {
-    width: 100%;
+    width: 80%;
   }
 }
 

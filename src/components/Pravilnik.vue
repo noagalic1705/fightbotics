@@ -1,8 +1,9 @@
 <template>
     <div>
         <p class="tekstt">
-    Kako bi borbe robota učiniti univerzalnijim i napravili fairplay borbu za sve natjecateljske timove napisali smo pravilniku od 10 stranica u kojem
-    nalaze sva pitanja koja vas zasigurno zanimaju, a tiču se:
+    Kako bismo osigurali fair-play borbe, svi natjecateljski timovi se moraju pridržavati našeg Pravilnika.
+U Pravilniku su detaljno opisani: 
+
     <ul>
 	<li>načina prijave i kriterija evaluacije prijava</li>
 	<li>koja je dopuštena masa i napon vašeg borbenog robota</li>
@@ -36,11 +37,11 @@ ul {
     margin-bottom: 10vh;
 }
 .tekstt {
-    margin-top: 10vh;
     text-align: left;
     margin-left: 20%;
     margin-right: 20%;
-    font-size: 3vh;
+    font-size: 1.75vh;
+    color: #cdcdcd;
 }
 
 @media screen and (max-width: 1000px) {
